@@ -39,16 +39,18 @@ var Typer = {
     if (Typer.text) {
       // Otherwise if text is loaded
       var cont = Typer.content(); // Get the console content
-      if (cont.substring(cont.length - 1, cont.length) === "|")
+      if (cont.substring(cont.length - 1, cont.length) === "|") {
         // If the last char is the blinking cursor
         console.html(console.html().substring(0, cont.length - 1)); // Remove it before adding the text
+      }
       if (key.key !== "Backspace") {
         // If key is not backspace
         Typer.index += Typer.speed; // Add to the index the speed
       } else {
-        if (Typer.index > 0)
+        if (Typer.index > 0) {
           // Else if index is not less than 0
           Typer.index -= Typer.speed; // Remove speed for deleting text
+        }
       }
       var text = $("<div/>")
         .text(Typer.text.substring(0, Typer.index))
@@ -78,10 +80,12 @@ var Typer = {
     // Blinking cursor
     var terminal = $("#console");
     var cont = this.content(); // Get terminal
-    if (cont.substring(cont.length - 1, cont.length) === "|")
+    if (cont.substring(cont.length - 1, cont.length) === "|") {
       // If last char is the cursor
+      // Remove it
       terminal.html(terminal.html().substring(0, cont.length - 1));
-    // Remove it
-    else this.write("|"); // Else write it
+    } else {
+      this.write("|"); // Else write it
+    }
   }
 };
