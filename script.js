@@ -18,24 +18,24 @@ var Typer = {
   },
 
   content() {
-    return $("#console").html(); // Get console content
+    return $("#terminal").html(); // Get terminal content
   },
 
   write(str) {
-    // Append to console content
-    $("#console").append(str);
+    // Append to terminal content
+    $("#terminal").append(str);
     return false;
   },
 
   addText(key) {
     // Main function to add the code
-    var console = document.getElemenyById("console");
+    var terminal = $("#terminal");
     if (Typer.text) {
       // Otherwise if text is loaded
-      var cont = Typer.content(); // Get the console content
+      var cont = Typer.content(); // Get the terminal content
       if (cont.substring(cont.length - 1, cont.length) === "|") {
         // If the last char is the blinking cursor
-        console.html(console.html().substring(0, cont.length - 1)); // Remove it before adding the text
+        terminal.html(terminal.html().substring(0, cont.length - 1)); // Remove it before adding the text
       }
       if (key.key !== "Backspace") {
         // If key is not backspace
@@ -52,7 +52,7 @@ var Typer = {
       var rtn = new RegExp("\n", "g"); // Newline regex
       var rts = new RegExp("\\s", "g"); // Whitespace regex
       var rtt = new RegExp("\\t", "g"); // Tab regex
-      console.html(
+      terminal.html(
         text
           .replace(rtn, "<br/>")
           .replace(rtt, "&nbsp;&nbsp;&nbsp;&nbsp;")
@@ -72,7 +72,7 @@ var Typer = {
 
   updLstChr() {
     // Blinking cursor
-    var terminal = $("#console");
+    var terminal = $("#terminal");
     var cont = this.content(); // Get terminal
     if (cont.substring(cont.length - 1, cont.length) === "|") {
       // If last char is the cursor
