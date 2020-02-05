@@ -12,7 +12,7 @@ var Typer = {
   file: "", // File, must be set
   accessCount: 0, // Times alt is pressed for Access Granted
   deniedCount: 0, // Times caps is pressed for Access Denied
-  init: function() {
+  init() {
     // Initialize Automatic Typer
     this.accessCountimer = setInterval(function() {
       Typer.updLstChr();
@@ -23,17 +23,17 @@ var Typer = {
     });
   },
 
-  content: function() {
+  content() {
     return $("#console").html(); // Get console content
   },
 
-  write: function(str) {
+  write(str) {
     // Append to console content
     $("#console").append(str);
     return false;
   },
 
-  addText: function(key) {
+  addText(key) {
     // Main function to add the code
     var console = document.getElemenyById("console");
     if (Typer.text) {
@@ -76,7 +76,7 @@ var Typer = {
     }
   },
 
-  updLstChr: function() {
+  updLstChr() {
     // Blinking cursor
     var terminal = $("#console");
     var cont = this.content(); // Get terminal
