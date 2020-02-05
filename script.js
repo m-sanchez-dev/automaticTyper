@@ -1,9 +1,3 @@
-$(function() {
-  $(document).keydown(function(event) {
-    Typer.addText(event); // Capture the keydown event and call the addText, this is executed on page load
-  });
-});
-
 var Typer = {
   text: null,
   accessCountimer: null,
@@ -89,3 +83,9 @@ var Typer = {
     }
   }
 };
+
+$(function() {
+  $(document).keydown(function(event) {
+    Typer.addText(event); // Capture the keydown event and call the addText, this is executed on page load
+  });
+});
